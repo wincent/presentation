@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'), url(vendor/fonts/robotomono/RobotoMono-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Nanum Pen Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nanum Pen'), local('NanumPen'), url(vendor/fonts/nanum/NanumPenScript-Regular.ttf) format('truetype');
+}
+
 a {
   color: inherit;
   text-decoration: underline;
@@ -64,6 +78,13 @@ pre > code {
 pre > code.hljs {
   /* Don't let hljs throw off our auto-resizing calculations. */
   padding: 0;
+}
+
+tt,
+code,
+kbd,
+samp {
+  font-family: 'Roboto Mono', monospace;
 }
 
 section {

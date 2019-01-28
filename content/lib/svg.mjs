@@ -41,7 +41,7 @@ export function text(content, x, y, options) {
     const attributes = {
       x,
       y,
-      style: {'font-family': '"Hannotate TC"'},
+      style: {'font-family': '"Nanum Pen Script"'},
     };
 
     // Style properties.

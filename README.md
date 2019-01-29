@@ -66,3 +66,4 @@ In order for this to work with Chrome in fullscreen mode (which you will want on
 * Live resizing of `pre` blocks in response to window resize events (presentation will be full-screen anyway).
 * Manual control over timer (just refresh the page if you want to restart the timer).
 * Beautiful CSS and JS internals.
+* Slides optimized for downloading over the web.

@@ -234,6 +234,16 @@ tr:nth-child(2n) {
   flex-basis: calc(50vw - 100px);
 }
 
+.flash {
+  animation-name: flash;
+  animation-duration: .3s;
+}
+
+@keyframes flash {
+  from { background: red;/*rgba(240, 230, 140, .8);*/ } /* khaki */
+  to   { background: default; }
+}
+
 #presenter {
   -webkit-user-select: none;
   background: rgba(255, 255, 255, .75);
@@ -276,11 +286,13 @@ tr:nth-child(2n) {
 }
 
 #timer {
+  bottom: 0;
   color: #000;
+  cursor: pointer;
   font-size: 20vw;
   opacity: .25;
   position: fixed;
   right: 10px;
   text-align: center;
-  bottom: 0;
+  user-select: none;
 }

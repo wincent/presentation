@@ -40,6 +40,28 @@ function zeroPad(number) {
   return number < 10 ? '0' + number : number;
 }
 
+function flash(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    const toggle = () => element.classList.toggle('flash');
+    toggle();
+    setTimeout(toggle, 300);
+  }
+}
+
+let pausedAt = null;
+function toggleTimer() {
+  flash('timer');
+  if (interval) {
+    clearInterval(interval);
+    interval = null;
+    pausedAt = Date.now();
+  } else {
+    start += Date.now() - pausedAt;
+    showTimer();
+  }
+}
+
 function showTimer() {
   timer.classList.remove('hidden');
   if (!start) {
@@ -366,6 +388,8 @@ body.addEventListener('click', event => {
   const target = event.target;
   if (target.id === 'presenter-toggle') {
     togglePresenterMode();
+  } else if (target.id === 'timer') {
+    toggleTimer();
   }
 });
 

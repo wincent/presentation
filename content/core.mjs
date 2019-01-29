@@ -398,14 +398,8 @@ function togglePresenterMode() {
   }
 }
 
-body.addEventListener('click', event => {
-  const target = event.target;
-  if (target.id === 'presenter') {
-    togglePresenterMode();
-  } else if (target.id === 'timer') {
-    toggleTimer();
-  }
-});
+document.getElementById('presenter').addEventListener('click', togglePresenterMode);
+document.getElementById('timer').addEventListener('click', toggleTimer);
 
 window.addEventListener('storage', event => {
   if (event.key === 'slide') {

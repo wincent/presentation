@@ -4,6 +4,8 @@
 
 Slide content is at "content/index.html". A double-clickable `slides.url` shortcut file is supplied as a convenience. This was originally developed for [this presentation on "Relay 2"](https://github.com/wincent/relay-2-simpler-faster-more-predictable/), I took [commit 31db86](https://github.com/wincent/relay-2-simpler-faster-more-predictable/commit/31db86e25c801da600663f952fbed2328141b9c4) from that repo and stripped it back until it formed this basis that can be used to create new presentations.
 
+Sample content is at "content/sample.html", with a corresponding double-clickable `sample.url` shortcut file.
+
 ### Features
 
 Plain-text snippets (source code, ASCII-art diagrams) in the "content" directory are included via an `iframe` hack, but due to the same-origin policy, the hack won't work with resources accessed using `file://` URLs. Similarly, we can't import ES Modules without having a properly set MIME type. As such, we need serve the presentation locally using the included `run.py` script.

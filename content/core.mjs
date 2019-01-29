@@ -386,7 +386,7 @@ function togglePresenterMode() {
 
 body.addEventListener('click', event => {
   const target = event.target;
-  if (target.id === 'presenter-toggle') {
+  if (target.id === 'presenter') {
     togglePresenterMode();
   } else if (target.id === 'timer') {
     toggleTimer();

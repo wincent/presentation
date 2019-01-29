@@ -10,6 +10,7 @@ const REMOTE_NEXT = 34;
 const REMOTE_PREV = 33;
 
 let interval = null;
+let start = null;
 let presenterMode = !!location.search.match(/\bpresenter\b/);
 const notes = document.getElementById('notes');
 const slides = document.querySelectorAll('#slides > section');
@@ -39,7 +40,6 @@ function zeroPad(number) {
   return number < 10 ? '0' + number : number;
 }
 
-let start = null;
 function showTimer() {
   timer.classList.remove('hidden');
   if (!start) {

@@ -278,11 +278,8 @@ tr:nth-child(2n) {
 
 #presenter {
   border-bottom: 1px solid #ddd;
-  top: 0;
-}
-
-#presenter-toggle {
   cursor: pointer;
+  top: 0;
 }
 
 #timer {

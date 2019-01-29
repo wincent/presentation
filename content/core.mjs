@@ -9,6 +9,7 @@ const KEY_UP = 38;
 const REMOTE_NEXT = 34;
 const REMOTE_PREV = 33;
 
+let buildCounter = 0;
 let interval = null;
 let start = null;
 let presenterMode = !!location.search.match(/\bpresenter\b/);
@@ -88,24 +89,36 @@ function resetBuilds(element) {
   });
 }
 
-function next() {
-  const nextBuild = currentSlide.querySelector('.build:not(.done)');
-  if (nextBuild) {
-    nextBuild.classList.add('done');
-  } else {
-    const nextElement = currentSlide.nextElementSibling;
-    if (nextElement) {
-      resetBuilds(currentSlide);
-      pushState(nextElement);
-      showSlide(nextElement, true);
+function nextBuild(broadcast = false) {
+  const next = currentSlide.querySelector('.build:not(.done)');
+  if (next) {
+    next.classList.add('done');
+    if (broadcast) {
+      localStorage.setItem(
+        'build',
+        ++buildCounter,
+      );
     }
+    return true;
   }
+  return false;
+}
+
+function nextSlide() {
+  const nextElement = currentSlide.nextElementSibling;
+  if (nextElement) {
+    pushState(nextElement);
+    showSlide(nextElement, true);
+  }
+}
+
+function next() {
+  nextBuild(true) || nextSlide();
 }
 
 function previous() {
   const previousElement = currentSlide.previousElementSibling;
   if (previousElement) {
-    resetBuilds(currentSlide);
     pushState(previousElement);
     showSlide(previousElement, true);
   }
@@ -113,6 +126,7 @@ function previous() {
 
 function showSlide(slide, broadcast) {
   if (slide) {
+    resetBuilds(currentSlide);
     currentSlide.classList.remove('current');
     slide.classList.add('current');
     currentSlide = slide;
@@ -404,6 +418,13 @@ window.addEventListener('storage', event => {
         'Unable to find slide for "slide" event value',
         event.newValue
       );
+    }
+  } else if (event.key === 'build') {
+    const newValue = parseInt(event.newValue, 10);
+    const newCounter = isNaN(newValue) ? 0 : newValue;
+    while (newCounter > buildCounter) {
+      nextBuild();
+      buildCounter++;
     }
   }
 }, false);

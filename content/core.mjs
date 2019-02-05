@@ -1,4 +1,4 @@
-import dedent from '/vendor/dedent.mjs';
+import dedent from './vendor/dedent.mjs';
 
 const KEY_DOWN = 40;
 const KEY_LEFT = 37;

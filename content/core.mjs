@@ -133,11 +133,11 @@ function showSlide(slide, broadcast) {
     if (presenterMode) {
       updatePresenterNotes(slide);
     }
+    const index = Array.prototype.indexOf.call(slides, slide);
+    const progress = slides.length ? (index + 1) / slides.length * 100 : 100;
+    document.getElementById('progress').style.width = `${progress}%`;
     if (broadcast) {
-      localStorage.setItem(
-        'slide',
-        Array.prototype.indexOf.call(slides, slide)
-      );
+      localStorage.setItem('slide', index);
     }
   }
 }

@@ -282,6 +282,20 @@ tr:nth-child(2n) {
   top: 0;
 }
 
+#progress-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#progress {
+  display: inline-block;
+  background-color: rgba(100, 82, 252, .8);
+  height: 4px;
+  vertical-align: bottom;
+  width: 0;
+}
+
 #timer {
   bottom: 0;
   color: #000;
